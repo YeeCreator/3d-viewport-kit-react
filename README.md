@@ -1,4 +1,4 @@
-# 3d-viewport-kit-react
+# viewport-3d-kit-react
 
 通用 3D 视口工具包（React + TypeScript + Vite），提供：
 
@@ -16,15 +16,15 @@
 ## 安装
 
 ```bash
-npm install 3d-viewport-kit-react three @react-three/fiber @react-three/drei react react-dom
+npm install viewport-3d-kit-react three @react-three/fiber @react-three/drei react react-dom
 ```
 
 ## 快速接入（最小示例）
 
 ```tsx
 import { useMemo, useState } from 'react';
-import { Viewport3D } from '3d-viewport-kit-react/react';
-import { createDemoEntities } from '3d-viewport-kit-react/core';
+import { Viewport3D } from 'viewport-3d-kit-react/react';
+import { createDemoEntities } from 'viewport-3d-kit-react/core';
 
 export function Demo() {
 	const entities = useMemo(() => createDemoEntities(), []);
@@ -84,8 +84,8 @@ interface Viewport3DProps {
 ### `react` 子入口
 
 ```ts
-import { Viewport3D, MiniMap3D } from '3d-viewport-kit-react/react';
-import type { Viewport3DProps, MiniMapMode } from '3d-viewport-kit-react/react';
+import { Viewport3D, MiniMap3D } from 'viewport-3d-kit-react/react';
+import type { Viewport3DProps, MiniMapMode } from 'viewport-3d-kit-react/react';
 ```
 
 ### `core` 子入口
@@ -96,24 +96,24 @@ import {
 	computeSceneBounds,
 	normalizeSelectedEntityId,
 	TRANSFORM_MODES,
-} from '3d-viewport-kit-react/core';
-import type { ViewportEntity, SelectedEntityId, TransformMode } from '3d-viewport-kit-react/core';
+} from 'viewport-3d-kit-react/core';
+import type { ViewportEntity, SelectedEntityId, TransformMode } from 'viewport-3d-kit-react/core';
 ```
 
 ### `ui` 子入口
 
 ```ts
-import { Viewport3DToolbar, Viewport3DContextMenu } from '3d-viewport-kit-react/ui';
-import type { Viewport3DToolbarProps, Viewport3DContextMenuProps } from '3d-viewport-kit-react/ui';
+import { Viewport3DToolbar, Viewport3DContextMenu } from 'viewport-3d-kit-react/ui';
+import type { Viewport3DToolbarProps, Viewport3DContextMenuProps } from 'viewport-3d-kit-react/ui';
 ```
 
 ## 导出结构
 
 ```txt
-3d-viewport-kit-react
-3d-viewport-kit-react/core
-3d-viewport-kit-react/react
-3d-viewport-kit-react/ui
+viewport-3d-kit-react
+viewport-3d-kit-react/core
+viewport-3d-kit-react/react
+viewport-3d-kit-react/ui
 ```
 
 ## 说明

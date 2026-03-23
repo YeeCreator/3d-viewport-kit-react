@@ -19,7 +19,7 @@ export function App() {
 
   return (
     <main className="app-root">
-      <h1 className="app-title">3d-viewport-kit-react</h1>
+      <h1 className="app-title">viewport-3d-kit-react</h1>
       <p className="app-description">当前示例展示通用 3D 视口与可选小地图能力。</p>
 
       <label className="app-checkbox app-row">
