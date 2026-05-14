@@ -1,18 +1,21 @@
 {
-  "name": "viewport-3d-kit-react",
+  "name": "viewport-3d-kit",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "packageManager": "pnpm@10.33.2",
   "exports": {
-    ".": "./src/index.ts",
+    ".": "./src/lib/vue/index.ts",
     "./core": "./src/lib/core/index.ts",
+    "./vue": "./src/lib/vue/index.ts",
     "./react": "./src/lib/react/index.ts",
     "./ui": "./src/lib/ui/index.ts"
   },
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "typecheck": "tsc -b --pretty false"
   },
   "dependencies": {
     "@radix-ui/react-context-menu": "^2.2.16",
