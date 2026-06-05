@@ -43,7 +43,13 @@ function MiniMapEntities(props: { entities: ViewportEntity[] }) {
 
         return (
           <mesh key={entity.id} position={[px, py, pz]}>
-            <boxGeometry args={[sx, sy, sz]} />
+            {entity.kind === 'sphere' ? (
+              <sphereGeometry args={[Math.max(sx, sy, sz) / 2, 20, 10]} />
+            ) : entity.kind === 'cylinder' ? (
+              <cylinderGeometry args={[Math.max(sx, sz) / 2, Math.max(sx, sz) / 2, sy, 20]} />
+            ) : (
+              <boxGeometry args={[sx, sy, sz]} />
+            )}
             <meshStandardMaterial color={entity.color} wireframe />
           </mesh>
         );

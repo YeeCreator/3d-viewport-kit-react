@@ -1,6 +1,11 @@
 import * as THREE from 'three';
 
 /**
+ * 场景对象几何类型。
+ */
+export type ViewportEntityKind = 'box' | 'sphere' | 'cylinder';
+
+/**
  * 场景对象数据。
  */
 export interface ViewportEntity {
@@ -12,6 +17,8 @@ export interface ViewportEntity {
   position: [number, number, number];
   /** 对象在世界坐标中的尺寸。 */
   size: [number, number, number];
+  /** 对象几何类型。 */
+  kind?: ViewportEntityKind;
   /** 对象欧拉旋转（弧度制）。 */
   rotation?: [number, number, number];
   /** 对象材质颜色。 */
@@ -30,6 +37,7 @@ export function createDemoEntities(): ViewportEntity[] {
       name: '箱体 A',
       position: [-2, 0.5, -1],
       size: [1, 1, 1],
+      kind: 'box',
       rotation: [0, 0, 0],
       color: '#ff7a59',
     },
@@ -38,6 +46,7 @@ export function createDemoEntities(): ViewportEntity[] {
       name: '箱体 B',
       position: [0, 0.75, 2],
       size: [1.2, 1.5, 1],
+      kind: 'cylinder',
       rotation: [0, 0, 0],
       color: '#4da3ff',
     },
@@ -46,6 +55,7 @@ export function createDemoEntities(): ViewportEntity[] {
       name: '箱体 C',
       position: [2.2, 0.4, 0.5],
       size: [0.8, 0.8, 0.8],
+      kind: 'sphere',
       rotation: [0, 0, 0],
       color: '#66cc8a',
     },

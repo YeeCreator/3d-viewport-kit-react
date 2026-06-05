@@ -38,6 +38,11 @@
   background: #e0f2fe;
 }
 
+.app-camera-row {
+  color: #334155;
+  font-size: 13px;
+}
+
 .app-viewport {
   width: 100%;
   height: 70vh;

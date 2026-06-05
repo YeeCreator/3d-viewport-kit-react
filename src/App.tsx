@@ -4,6 +4,8 @@ import type { EntityTransformMap } from './lib/react';
 import { createDemoEntities } from './lib/core/scene/scene-state';
 import type { SelectedEntityId } from './lib/core/selection/selection-state';
 import type { TransformMode } from './lib/core/gizmo/transform-mode';
+import type { ViewportCameraState } from './lib/core/camera';
+import type { ViewportDisplayMode, ViewportWorkMode } from './lib/core/viewport';
 
 /**
  * 示例应用根组件。
@@ -16,6 +18,11 @@ export function App() {
   const [selectedEntityId, setSelectedEntityId] = useState<SelectedEntityId>(null);
   const [transformMode, setTransformMode] = useState<TransformMode>('translate');
   const [entityTransforms, setEntityTransforms] = useState<EntityTransformMap>({});
+  const [cameraState, setCameraState] = useState<ViewportCameraState | null>(null);
+  const [workMode, setWorkMode] = useState<ViewportWorkMode>('runtime');
+  const [displayMode, setDisplayMode] = useState<ViewportDisplayMode>('rendered');
+  const [unrealRuntimeNavigation, setUnrealRuntimeNavigation] = useState(true);
+  const [modifierMiddlePresetEnabled, setModifierMiddlePresetEnabled] = useState(false);
 
   return (
     <main className="app-root">
@@ -57,6 +64,20 @@ export function App() {
         <span>宿主选中对象：{selectedEntityId ?? '无'}</span>
       </div>
 
+      <div className="app-row app-camera-row">
+        <span>工作模式：{workMode === 'runtime' ? '运行' : '编辑'}</span>
+        <span>显示模式：{displayMode}</span>
+      </div>
+
+      <div className="app-row app-camera-row">
+        <span>
+          当前相机位置：
+          {cameraState
+            ? `${cameraState.position[0].toFixed(2)}, ${cameraState.position[1].toFixed(2)}, ${cameraState.position[2].toFixed(2)}`
+            : '初始化中'}
+        </span>
+      </div>
+
       <Viewport3D
         entities={entities}
         miniMapEnabled={miniMapEnabled}
@@ -66,6 +87,15 @@ export function App() {
         onTransformModeChange={setTransformMode}
         entityTransforms={entityTransforms}
         onEntityTransformsChange={setEntityTransforms}
+        onCameraStateChange={setCameraState}
+        workMode={workMode}
+        onWorkModeChange={setWorkMode}
+        displayMode={displayMode}
+        onDisplayModeChange={setDisplayMode}
+        unrealRuntimeNavigation={unrealRuntimeNavigation}
+        onUnrealRuntimeNavigationChange={setUnrealRuntimeNavigation}
+        modifierMiddlePresetEnabled={modifierMiddlePresetEnabled}
+        onModifierMiddlePresetEnabledChange={setModifierMiddlePresetEnabled}
         miniMapMode="top-down"
         className="app-viewport"
       />
