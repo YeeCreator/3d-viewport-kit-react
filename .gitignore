@@ -1098,3 +1098,10 @@ rust-project.json
 
 
 
+
+# mailbox/relay — 运行时状态与归档（不入库）
+.mailbox/
+docs/mailbox/relay/archive/
+
+# pnpm 项目误生成的 npm lockfile（不入库）
+package-lock.json
